@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORBS — Рейтинг</title>
+<style>
+  :root {
+    --bg: #0a1128;
+    --bg-alt: #131d3b;
+    --card: #1b2a4e;
+    --gold: #d4af37;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --line: #2a3f6d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  h1, h2, h3, .logo { font-family: "Times New Roman", Times, serif; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  
+  /* Шапка */
+  header {
+    border-bottom: 2px solid var(--gold);
+    background: rgba(10, 17, 40, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  /* Заголовок страницы */
+  .page-header {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .page-header h1 { font-size: 2.8rem; font-weight: normal; }
+  .page-header p { color: var(--muted); margin-top: 10px; }
+
+  /* Таблица рейтинга (сделана через Flexbox для мобилок) */
+  .list-header {
+    display: flex;
+    padding: 0 20px 15px;
+    color: var(--gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--line);
+  }
+  .col-rank { width: 50px; }
+  .col-name { flex: 1; }
+  .col-money { width: 100px; text-align: right; }
+  .col-industry { width: 120px; text-align: right; display: none; }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.3s;
+  }
+  .list-item:hover { background: var(--bg-alt); }
+  .item-rank {
+    width: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    color: var(--muted);
+  }
+  .item-info { flex: 1; }
+  .item-name { font-size: 1.2rem; font-weight: 600; }
+  .item-source { font-size: 0.85rem; color: var(--muted); }
+  .item-money {
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  /* Адаптив для планшетов и ПК */
+  @media (min-width: 768px) {
+    .col-industry { display: block; }
+    .item-industry {
+      width: 120px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 60px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">FOR<span>B</span>S</a>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="rating.html" class="active">Рейтинг</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-header">
+    <h1>Глобальный рейтинг</h1>
+    <p>Список самых влиятельных людей мира по версии FORBS. Данные обновлены в 2026 году.</p>
+  </div>
+
+  <div class="list-header">
+    <div class="col-rank">#</div>
+    <div class="col-name">Имя / Компания</div>
+    <div class="col-industry">Сфера</div>
+    <div class="col-money">Капитал</div>
+  </div>
+
+  <!-- Список -->
+  <div class="list-item">
+    <div class="item-rank">1</div>
+    <div class="item-info">
+      <div class="item-name">Илон Маск</div>
+      <div class="item-source">Tesla, SpaceX</div>
+    </div>
+    <div class="item-industry">Технологии</div>
+    <div class="item-money">$245 млрд</div>
+  </div>
+
+  <div class="list-item">
+    <div class="item-rank">2</div>
+    <div class="item-info">
+      <div class="item-name">Бернар Арно</div>
+      <div class="item-source">LVMH</div>
+    </div>
+    <div class="item-industry">Роскошь</div>
+    <div class="item-money">$210 млрд</div>
+  </div>
+
+  <div class="list-item">
+    <div class="item-rank">3</div>
+    <div class="item-info">
+      <div class="item-name">Джефф Безос</div>
+      <div class="item-source">Amazon</div>
+    </div>
+    <div class="item-industry">E-commerce</div>
+    <div class="item-money">$198 млрд</div>
+  </div>
+
+  <div class="list-item">
+    <div class="item-rank">4</div>
+    <div class="item-info">
+      <div class="item-name">Марк Цукерберг</div>
+      <div class="item-source">Meta</div>
+    </div>
+    <div class="item-industry">Соцсети</div>
+    <div class="item-money">$175 млрд</div>
+  </div>
+
+  <div class="list-item">
+    <div class="item-rank">5</div>
+    <div class="item-info">
+      <div class="item-name">Ларри Эллисон</div>
+      <div class="item-source">Oracle</div>
+    </div>
+    <div class="item-industry">Технологии</div>
+    <div class="item-money">$160 млрд</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 FORBS. Все права защищены.
+  </div>
+</footer>
+
+</body>
+                                          </html>
